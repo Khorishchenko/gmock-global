@@ -1,0 +1,5 @@
+if(EXISTS "/Users/user/Desktop/INTT-52_2/gmock-global/builds/samples/mylib[1]_tests.cmake")
+  include("/Users/user/Desktop/INTT-52_2/gmock-global/builds/samples/mylib[1]_tests.cmake")
+else()
+  add_test(mylib_NOT_BUILT mylib_NOT_BUILT)
+endif()
