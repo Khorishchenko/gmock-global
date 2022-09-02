@@ -1,4 +1,4 @@
-# gmock-global [![Build Status](https://github.com/Khorishchenko/gmock-global/blob/main/.github/workflows/main.yml)] 
+# gmock-global ![Build Status](https://github.com/Khorishchenko/gmock-global/blob/main/.github/workflows/main.yml) 
 
 - [Introduction](#introduction)
 - [Usage](#usage)
