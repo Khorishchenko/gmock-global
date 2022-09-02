@@ -32,5 +32,5 @@ jobs:
 
       - name: ctest run our sample with it.
         run: | 
-            cd samples 
+            cd builds/samples 
             ./sample
