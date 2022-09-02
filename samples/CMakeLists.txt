@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(plog VERSION 1.1.8 LANGUAGES CXX)
+project(gmockglobal VERSION 1.1.8 LANGUAGES CXX)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -17,6 +17,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 set(SRC_LIST main.cpp)
+set(SRC_HEADER include/gmock-global/gmocl-global.h)
 
 add_library(MY_LIB
   ${SRC_LIST}
@@ -28,3 +29,12 @@ target_link_libraries(MY_LIB
   GTest::gtest_main
   GTest::gmock_main
 )
+
+add_executable(
+    sample
+    ${SRC_LIST}
+)
+
+target_link_libraries(sample 
+    MY_LIB
+)	

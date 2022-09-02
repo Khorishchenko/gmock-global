@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(plog VERSION 1.1.8 LANGUAGES CXX)
+project(gmockglobal VERSION 1.1.8 LANGUAGES CXX)
 
 # # check if building as a stand-alone project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -10,8 +10,8 @@ else()
 endif()
 
 # options
-option(PLOG_BUILD_SAMPLES "Build ${PROJECT_NAME} samples" ${IS_TOPLEVEL_PROJECT})
-option(PLOG_INSTALL "Generate ${PROJECT_NAME} install target" ${IS_TOPLEVEL_PROJECT})
+option(GMOCK_GLOBAL_BUILD_SAMPLES "Build ${PROJECT_NAME} samples" ${IS_TOPLEVEL_PROJECT})
+option(GMOCK_GLOBAL_INSTALL "Generate ${PROJECT_NAME} install target" ${IS_TOPLEVEL_PROJECT})
 
 # make sure install paths work on all platforms
 include(GNUInstallDirs)
@@ -30,8 +30,8 @@ if(ANDROID)
     target_link_libraries(${PROJECT_NAME} INTERFACE log)
 endif()
 
-if(PLOG_BUILD_SAMPLES)
-    # add a pseudo-project to make plog headers visible in IDE
+if(GMOCK_GLOBAL_BUILD_SAMPLES)
+    # add a pseudo-project to make GMOCK_GLOBAL headers visible in IDE
     file(GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/include/gmock-global/*.h)
     add_custom_target(${PROJECT_NAME}-headers SOURCES ${${PROJECT_NAME}_HEADERS})
     set_target_properties(${PROJECT_NAME}-headers PROPERTIES FOLDER Include)
@@ -41,7 +41,7 @@ if(PLOG_BUILD_SAMPLES)
 endif()
 
 
-if(PLOG_INSTALL)
+if(GMOCK_GLOBAL_INSTALL)
     install(
         TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}Config
