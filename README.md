@@ -1,4 +1,4 @@
-# gmock-global ![Build Status](https://github.com/Khorishchenko/gmock-global/blob/main/.github/workflows/main.yml/badge.svg) 
+# gmock-global ![Build Status](https://github.com/Khorishchenko/gmock-global/actions/workflows/main.yml/badge.svg) 
 
 - [Introduction](#introduction)
 - [Usage](#usage)
