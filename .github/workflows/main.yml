@@ -28,7 +28,17 @@ jobs:
       - name: Build it with various versions of gmock.
         run: |
           cmake -Bbuilds . -DGTEST_VERSION=1.12.1
-          cd builds && make   
+          cd builds && make
+
+      - name: Build it with various versions of gmock.
+        run: |
+          cmake -Bbuilds . -DGTEST_VERSION=1.12.0
+          cd builds && make     
+
+      - name: Build it with various versions of gmock.
+        run: |
+          cmake -Bbuilds . -DGTEST_VERSION=1.11.0
+          cd builds && make      
 
       - name: ctest run our sample with it.
         run: | 
