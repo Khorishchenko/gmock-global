@@ -15,6 +15,10 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+   example_matrix:
+    strategy:
+      matrix:
+        version: [1.12.1, 1.12.0, 1.11.0]
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -24,23 +28,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          node-version: ${{ matrix.version }}
               
       - name: Build it with various versions of gmock.
         run: |
-          cmake -Bbuilds . -DGTEST_VERSION=1.12.1
-          cd builds && make
-
-      - name: Build it with various versions of gmock.
-        run: |
-          cmake -Bbuilds . -DGTEST_VERSION=1.12.0
-          cd builds && make     
-
-      - name: Build it with various versions of gmock.
-        run: |
-          cmake -Bbuilds . -DGTEST_VERSION=1.11.0
-          cd builds && make      
-
+          cmake -Bbuilds . -DGTEST_VERSION=${{ matrix.version }}
+   
       - name: ctest run our sample with it.
         run: | 
-            cd builds/samples 
-            ./sample
+            cd builds
+            make 

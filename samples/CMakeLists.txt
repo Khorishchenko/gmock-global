@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
+include(CTest)
+
 project(gmockglobal VERSION 1.1.8 LANGUAGES CXX)
+
+enable_testing()
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -37,3 +41,5 @@ add_executable(
 target_link_libraries(sample 
     MY_LIB
 )	
+
+add_test(NAME Test1 COMMAND sample)

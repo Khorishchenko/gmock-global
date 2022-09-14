@@ -76,3 +76,17 @@ if(GMOCK_GLOBAL_INSTALL)
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
     )
 endif()
+
+
+add_executable(
+    Test
+    samples/main.cpp
+)
+
+target_link_libraries(Test
+  
+  ${PROJECT_NAME}::${PROJECT_NAME}
+  MY_LIB
+)
+
+add_test(NAME Test1 COMMAND ./Test)
