@@ -14,18 +14,12 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-   example_matrix:
-     strategy:
-       matrix:
-         version: [1.12.1, 1.12.0, 1.11.0]
-     runs-on: ${{ matrix.version }}
-     steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.version }}
+jobs:     
   # This workflow contains a single job called "build"
    build:
+    strategy:
+       matrix:
+         version: [1.12.1, 1.12.0, 1.11.0]
     # The type of runner that the job will run on
     runs-on: ubuntu-22.04
 
