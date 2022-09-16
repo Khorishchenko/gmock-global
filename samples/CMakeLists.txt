@@ -43,4 +43,3 @@ target_link_libraries(sample
 )
 
 add_test (NAME GMOCK-GLOBAL_Test COMMAND sample)
-
