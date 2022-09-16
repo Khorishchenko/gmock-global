@@ -1,6 +1,9 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.6)
 
 project(gmockglobal VERSION 1.1.8 LANGUAGES CXX)
+
+
+enable_testing()
 
 # # check if building as a stand-alone project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -76,17 +79,3 @@ if(GMOCK_GLOBAL_INSTALL)
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
     )
 endif()
-
-
-add_executable(
-    Test
-    samples/main.cpp
-)
-
-target_link_libraries(Test
-  
-  ${PROJECT_NAME}::${PROJECT_NAME}
-  MY_LIB
-)
-
-add_test(NAME Test1 COMMAND ./Test)

@@ -34,5 +34,4 @@ jobs:
    
       - name: ctest run our sample with it.
         run: | 
-            cd builds
-            make 
+            cd builds && ctest

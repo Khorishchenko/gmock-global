@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.6)
 
 include(CTest)
 
@@ -38,8 +38,9 @@ add_executable(
     ${SRC_LIST}
 )
 
-target_link_libraries(sample 
+target_link_libraries(sample
     MY_LIB
-)	
+)
 
-add_test(NAME Test1 COMMAND sample)
+add_test (NAME GMOCK-GLOBAL_Test COMMAND sample)
+
